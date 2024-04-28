@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'solditime',
+  title: 'solidtime',
   tagline: 'The modern open-source time-tracker',
   favicon: 'img/favicon.ico',
 
