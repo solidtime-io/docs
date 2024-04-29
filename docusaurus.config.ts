@@ -1,13 +1,26 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type { ScalarOptions } from '@scalar/docusaurus'
 
 const config: Config = {
   title: 'solidtime',
   tagline: 'The modern open-source time-tracker',
   favicon: 'img/favicon.ico',
 
-  plugins: [require.resolve('docusaurus-lunr-search')],
+  plugins: [
+      require.resolve('docusaurus-lunr-search'),
+      ['@scalar/docusaurus', {
+        label: 'API',
+        route: '/api-reference',
+        configuration: {
+          spec: {
+            url: 'https://api-docs.solidtime.io/api-docs.json',
+          },
+        },
+        withDefaultFonts: false,
+      } as ScalarOptions],
+  ],
 
   // Set the production url of your site here
   url: 'https://docs.solidtime.io',
