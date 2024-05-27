@@ -55,7 +55,7 @@ The examples all contain template files that you can copy and adjust to your nee
  - `laravel.env.example` --> `laravel.env`
 
 You need to adjust the environment variables in the `.env` and `laravel.env` files to your needs.
-You can find for information about the environment variables in the [configuration documentation](./configuration).
+You can find for information about the environment variables in the [configuration documentation](../configuration).
 
 ### Generate the application keys
 
@@ -108,7 +108,7 @@ You can now access the application in your browser. The URL depends on your setu
 
 ### Testing the setup
 
-You can find information about how to test the setup in the [testing documentation](./testing).
+You can find information about how to test the setup in the [testing documentation](../testing).
 
 ## Update
 
