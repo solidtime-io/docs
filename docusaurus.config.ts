@@ -10,16 +10,18 @@ const config: Config = {
 
     plugins: [
         require.resolve('docusaurus-lunr-search'),
-        ['@scalar/docusaurus', {
+        [
+            '@scalar/docusaurus', {
             label: 'API',
             route: '/api-reference',
             configuration: {
                 spec: {
                     url: 'https://api-docs.solidtime.io/api-docs.json',
                 },
+                withDefaultFonts: false
             },
-            withDefaultFonts: false,
-        } as ScalarOptions],
+        } as ScalarOptions
+        ],
         [
             '@docusaurus/plugin-client-redirects',
             {
