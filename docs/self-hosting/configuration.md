@@ -1,12 +1,17 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Configuration
 
+This page contains important **configuration options you should consider when self-hosting solidtime in production**. Please read them carefully and adjust them to your needs.
+If you are looking for a guide to get a simple setup up and running, you can find it [here](./guides/docker).
+
 The configuration contains placeholders (`your-domain.com`, `your-bucket-name`, `***`) that you need to replace with your own values.
 
 ## General
+
+The configuration example below is for a production environment using HTTPS. You can adjust the values to your needs, in any case you will have to change `APP_URL` to the URL of your solidtime instance.
 
 ```dotenv
 APP_NAME="solidtime"
@@ -19,6 +24,8 @@ TRUSTED_PROXIES="0.0.0.0/0,2000:0:0:0:0:0:0:0/3"
 ```
 
 ## Authentication
+
+You can run `docker run --rm solidtime/solidtime:main php artisan self-host:generate-keys` to obtain `APP_KEY`, `PASSPORT_PRIVATE_KEY` and `PASSPORT_PUBLIC_KEY`
 
 ```dotenv
 APP_KEY=""
@@ -75,9 +82,9 @@ DB_PASSWORD="***"
 
 ## Email
 
-Configure the email settings for sending emails.
+Configure the email settings for sending emails. Solidtime supports every (transactional) mail service that offers an SMTP integration.  
 
-### Scaleway TEM via SMTP
+### Example using Scaleway TEM via SMTP
 
 ```dotenv
 MAIL_MAILER="smtp"
@@ -106,11 +113,15 @@ You can read more about the queue configuration in the [Laravel documentation](h
 
 ### Sync
 
+You can use this option if you don't want to use a separate Queue Worker (f.e. a `worker` container, see [Container Mode](./container-mode.md)) that handles queued jobs asynchronously. It will dispatch jobs synchronously. **We do not recommend using this option in production.** 
+
 ```dotenv
 QUEUE_CONNECTION="sync"
 ```
 
 ### Database
+
+Please keep in mind that you need a separate Queue Worker (f.e. a `worker` container, see [Container Mode](./container-mode.md)) that handles queued jobs asynchronously to use this configuration option.
 
 ```dotenv
 QUEUE_CONNECTION="database"
