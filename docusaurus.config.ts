@@ -28,11 +28,11 @@ const config: Config = {
                 redirects: [
                     {
                         from: '/self-hosting/docker',
-                        to: '/self-hosting/environments/docker',
+                        to: '/self-hosting/guides/docker',
                     },
                     {
                         from: '/self-hosting/kubernetes-helm',
-                        to: '/self-hosting/environments/kubernetes-helm',
+                        to: '/self-hosting/guides/kubernetes-helm',
                     },
                 ],
             }
