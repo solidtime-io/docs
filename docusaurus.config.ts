@@ -31,7 +31,15 @@ const config: Config = {
                         to: '/self-hosting/guides/docker',
                     },
                     {
+                        from: '/self-hosting/environments/docker',
+                        to: '/self-hosting/guides/docker',
+                    },
+                    {
                         from: '/self-hosting/kubernetes-helm',
+                        to: '/self-hosting/guides/kubernetes-helm',
+                    },
+                    {
+                        from: '/self-hosting/environments/kubernetes-helm',
                         to: '/self-hosting/guides/kubernetes-helm',
                     },
                 ],
