@@ -20,7 +20,7 @@ Before you start you need to ask yourself a few questions:
 Some people might already have a managed Postgres database that they want to use for solidtime.
 If you don't have a database yet, you can look at the example with a Postgres container in the repository.
 Self-hosting a database is a whole other topic and we won't cover it in this guide.
-If you plan to use solidtime a production environment and you don't have experience managing a database server, we recommend using a managed database service.
+If you plan to use solidtime in a production environment and you don't have experience managing a database server, we recommend using a managed database service.
 If you plan on using one database server for multiple applications, you should consider using a separate database for each application with different credentials that only have access to one of the databases.
 
 **What do I want to use to send the email that solidtime is sending?**
@@ -37,15 +37,21 @@ If you don't have a reverse proxy yet, you can use the example with Traefik in t
 
 ## Installation
 
-### Choose the example that fits your needs the best
+### 1. Choose the example that fits your needs the best
 
-The repository contains multiple examples for different setups. You can choose the one that fits your needs the best.
+[The Self-Hosting example repository](https://github.com/solidtime-io/self-hosting-examples/tree/main) contains multiple examples for different setups. You can choose the one that fits your needs the best.
 
- - 0-docker-traefik-with-database
+ - [Docker + Traefik + Database](https://github.com/solidtime-io/self-hosting-examples/tree/main/0-docker-traefik-with-database)
+ - [Docker + Database](https://github.com/solidtime-io/self-hosting-examples/tree/main/1-docker-with-database) (+ your own reverse proxy)
 
-Read the instructions in the README of the example you chose.
 
-### The environment files
+**Read the instructions in the README of the example you chose.** 
+
+:::info
+If you use the images for a setup different from our examples, please keep in mind that the **default service port of the solidtime container is 8000**.
+:::
+
+### 2. The environment files
 
 The docker setup has two configuration files for the environment variables.
 The `laravel.env` file contains the environment variables for the solidtime application and the `.env` file contains the environment variables for the docker compose config file.
@@ -57,7 +63,7 @@ The examples all contain template files that you can copy and adjust to your nee
 You need to adjust the environment variables in the `.env` and `laravel.env` files to your needs.
 You can find for information about the environment variables in the [configuration documentation](../configuration).
 
-### Generate the application keys
+### 3. Generate the application keys
 
 You need to generate the application keys for your solidtime installation. You can do this by running the following command:
 
@@ -68,7 +74,7 @@ docker compose run scheduler php artisan self-host:generate-keys
 This command will output random values for the `APP_KEY`, `PASSPORT_PRIVATE_KEY`, and `PASSPORT_PUBLIC_KEY` environment variables.
 You can copy these values and add them to the `laravel.env` file.
 
-### Start the containers
+### 4. Start the containers
 
 After you have set up the environment files and generated the application keys, you can start the containers.
 
@@ -82,7 +88,7 @@ You can view the logs of the containers with the following command:
 docker compose logs -f
 ```
 
-### Migrate database
+### 5. Migrate database
 
 To create the database tables, you need to run the migrations. You can do this by running the following command:
 
@@ -102,11 +108,11 @@ To do this you can set the environment variable `AUTO_DB_MIGRATE` to `true` in t
       AUTO_DB_MIGRATE: "true" # <--- Add this line
 ```
 
-### Access the application
+### 6. Access the application
 
 You can now access the application in your browser. The URL depends on your setup.
 
-### Testing the setup
+### 7. Testing the setup (optional)
 
 You can find information about how to test the setup in the [testing documentation](../testing).
 
