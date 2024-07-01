@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - feature/**
+      - hotfix/**
+name: Deploy
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check out code"
+        uses: actions/checkout@v4
+
+      - name: "Setup node"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: "Install npm dependencies"
+        run: npm ci
+
+      - name: "Build static site"
+        run: npm run build
