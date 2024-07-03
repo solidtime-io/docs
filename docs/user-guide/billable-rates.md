@@ -38,23 +38,42 @@ Alice's tracked time in "Project B" will be billed with the projects billable ra
 
 ## How to set billable rates
 
+In the following sections, you will learn how to set billable rates on different levels.
+In general, the process is the same for all levels.
+Before you update a billable rate, you will be asked if you want to apply the new billable rate to existing time entries or only to new time entries.
+
+If you choose to apply the billable rate to existing time entries, only the time entries that use the specific billable rate will be updated. If a time entry has a billable rate set on a higher level, the time entry will not be updated.
+
+**Example:**
+
+Bob and Alice are members of the organization "Great company".
+Bob tracks 3 hours on "Project A". The billable rate for Bob in "Project A" is 100€.
+Alice tracks 4 hours without a project.
+
+The administrator of the organization now sets the billable rate for the organization to 50€ and applies the new billable rate to existing time entries.
+This will update Alice's time entries to 50€ per hour, but Bob's time entries will stay at 100€ per hour, since the project billable rate has a higher priority.
+
 ### Organization billable rate
 
-This feature is coming soon.
+1. Go to the Settings tab in the navigation on the left
+2. Scroll down to the "Billable Rate" section and set the billable rate
+3. When you click on "Save" a popup will appear where you can choose if you want to apply the billable rate to existing time entries or only to new time entries
 
 ### Organization member billable rate
 
 1. Go to the "Members" tab in the navigation on the left
 2. Find the user you want to set the billable rate for and click on the three dots on the right side of the user
 3. Click on "Edit"
-4. Set the billable rate in the "Billable rate" field and click on "Update member"
+4. Under "Billable" select "Custom rate" and set the billable rate
+5. When you click "Update" a popup will appear where you can choose if you want to apply the billable rate to existing time entries or only to new time entries.
 
 ### Project billable rate
 
 1. Go to the "Projects" tab in the navigation on the left
 2. Find the project you want to set the billable rate for and click on the three dots on the right side of the project
 3. Click on "Edit"
-4. Set the billable rate in the "Billable rate" field and click on "Update project"
+4. Under "Billable Default" select "Custom rate" and set the billable rate
+5. When you click "Update" a popup will appear where you can choose if you want to apply the billable rate to existing time entries or only to new time entries.
 
 It is also possible to set the billable rate when creating a new project.
 
@@ -63,6 +82,7 @@ It is also possible to set the billable rate when creating a new project.
 1. Go to the "Projects" tab in the navigation on the left
 2. Click on the project you want to set the billable rate for to open the project
 3. Under "Project members" find the user you want to set the billable rate for and click on the three dots on the right side of the user and click on "Edit"
-4. Set the billable rate in the "Billable rate" field and click on "Update project member"
+4. Set the billable rate in the "Billable rate" field
+5. When you click "Update project member" a popup will appear where you can choose if you want to apply the billable rate to existing time entries or only to new time entries.
 
 If the user is not a member of the project yet, you can add the user to the project with the "+ Add Member" button and set the billable rate at the same time.

@@ -41,6 +41,7 @@ Since you might want to invite users to solidtime one by one, the importer only 
 **Remove users**
 
 Note: This feature will be available soon
+
 If you want to remove a user from the organization, but you don't want to delete their time entries, you can remove the user from the organization and the user will be converted to a placeholder user.
 
 ### Invite placeholder users to become real users
