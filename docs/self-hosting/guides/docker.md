@@ -116,6 +116,26 @@ You can now access the application in your browser. The URL depends on your setu
 
 You can find information about how to test the setup in the [testing documentation](../testing).
 
+### 8. Activate Desktop client access (optional)
+
+The solidtime Desktop client authenticates with the API with OAuth.
+The Desktop client needs a client. You can create a client by running the following command:
+
+```bash
+docker compose exec scheduler php artisan passport:client --name=desktop --redirect_uri=solidtime://oauth/callback --public -n
+```
+
+This command will output the client ID. Write down the client ID, you will need it to configure the Desktop client.
+
+In the solidtime Desktop you can now Configure the API URL and the client ID.
+For that start the app and click on "Instance Settings". 
+
+<img src="/img/solidtime-desktop-instance-settings-1.png" alt="Screenshot of soldtime Desktop showing the start screen with an arrow on the Instance Settings button" width="500" />
+
+There you can enter the API URL and the client ID.
+
+<img src="/img/solidtime-desktop-instance-settings-2.png" alt="Screenshot of soldtime Desktop showing the Instance Settings interface" width="500" />
+
 ## Update
 
 To update solidtime, you can pull the latest image from the Docker registry.
