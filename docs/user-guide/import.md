@@ -9,14 +9,17 @@ To make migrating to solidtime as easy as possible, we provide a way to import y
 Currently, we support importing data from the following sources:
  - [Toggl](https://toggl.com/)
  - [Clockify](https://clockify.me/)
+ - solidtime
 
 More import sources will be added in the future.
 If you are using a different time tracking tool and would like to import your data into solidtime, please [contact us](mailto:hello@solidtime.io) or [create a GitHub issue](https://github.com/solidtime-io/solidtime/issues/new).
 
 ## How to import data
 
-1. In the left top corner click on the name of your organization and in the dropdown click on "Organization Settings"
-2. Scroll down to the "Import Data" section
+To import data into solidtime, follow these steps:
+
+1. Select the organization you want to import the data to in the left top corner
+2. Click on "Import" in the left navigation under "Admin" (You need to be Admin or Owner of the organization to see this)
 3. Select the import that you want to use
 4. After selecting the import an instruction will be shown on how to export the data from the source tool
 5. Follow the instruction and upload the exported file in the upload area below the instructions
