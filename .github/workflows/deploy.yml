@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - main
+      - develop
 
 name: Deploy
 jobs:
@@ -32,6 +33,7 @@ jobs:
         run: curl https://fastfront-cli.s3.fr-par.scw.cloud/fastfront-cli.phar -o fastfront-cli.phar
 
       - name: "Deploy with Fastfront"
-        run: php fastfront-cli.phar deploy 9beab6f6-7239-4451-8115-ff7520480549 ./build
+        run: php fastfront-cli.phar deploy $FASTFRONT_STAGE ./build
         env:
-          FASTFRONT_API_KEY: ${{ secrets.FASTFRONT_API_KEY }}
+          FASTFRONT_STAGE: ${{ github.ref == 'refs/heads/main' && '9beab6f6-7239-4451-8115-ff7520480549' || '9d40e799-ca33-470a-b10e-ed6bde30221c' }}
+          FASTFRONT_API_KEY: ${{ github.ref == 'refs/heads/main' && secrets.FASTFRONT_PROD_API_KEY || secrets.FASTFRONT_STAGING_API_KEY }}
