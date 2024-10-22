@@ -42,7 +42,7 @@ If you don't have a reverse proxy yet, you can use the example with Traefik in t
 [The Self-Hosting example repository](https://github.com/solidtime-io/self-hosting-examples/tree/main) contains multiple examples for different setups. You can choose the one that fits your needs the best.
 
  - [Docker + Traefik + Database](https://github.com/solidtime-io/self-hosting-examples/tree/main/0-docker-traefik-with-database)
- - [Docker + Database](https://github.com/solidtime-io/self-hosting-examples/tree/main/1-docker-with-database) (+ your own reverse proxy)
+ - [Docker + Database](https://github.com/solidtime-io/self-hosting-examples/tree/main/1-docker-with-database) (+ your own reverse proxy or HTTP-only for local setups)
 
 
 **Read the instructions in the README of the example you chose.** 

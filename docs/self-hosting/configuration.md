@@ -14,14 +14,18 @@ The configuration contains placeholders (`your-domain.com`, `your-bucket-name`, 
 The configuration example below is for a production environment using HTTPS. You can adjust the values to your needs, in any case you will have to change `APP_URL` to the URL of your solidtime instance.
 
 ```dotenv
-APP_NAME="solidtime"
-VITE_APP_NAME="solidtime"
 APP_ENV="production"
 APP_DEBUG="false"
 APP_URL="https://your-domain.com"
 APP_FORCE_HTTPS="true"
 TRUSTED_PROXIES="0.0.0.0/0,2000:0:0:0:0:0:0:0/3"
 ```
+
+| Env variable name | Description                                                                                                                                                                                                                                                                                                                                                    |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| APP_URL           | Base URL (f.e. `https://your-domain.com` for a production setup or something like `http://localhost:8000` for a local HTTP-only setup)                                                                                                                                                                                                                         |
+| APP_FORCE_HTTPS   | If enabled, the application will threat all request as if they were HTTPS. This is useful if the app is behind a reverse proxy and the reverse proxy is HTTPS-only but the communication between reverse proxy and app is HTTP.                                                                                                                                |
+| TRUSTED_PROXIES   | Comma-seperated list of CIDR IP ranges that are considered trusted. The app will trust headers like the `X-Forwarded-For` requests from those IPs. The example above (`0.0.0.0/0,2000:0:0:0:0:0:0:0/3`) is a wildcard for all IP addresses. This is only safe, if it's not possible to bypass the reverse proxy and the reverse proxy is correctly configured. |
 
 ## Authentication
 
