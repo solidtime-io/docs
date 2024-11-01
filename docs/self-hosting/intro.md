@@ -9,9 +9,11 @@ This guide is for users who want to learn how to self-host solidtime.
 
 If you have problems with the self-hosting guide, please open an issue on [GitHub](https://github.com/solidtime-io/solidtime/issues) or join our [Discord server](https://discord.gg/Wd7pNH5S64).
 
-## Docker image
+## Getting Started
 
-We provide a Docker image for solidtime. You can find the Docker image on [Docker Hub](https://hub.docker.com/r/solidtime/solidtime).
+We currently provide a detailed guide on how to deploy solidtime using Docker/Docker Compose.
+
+You can find the guide [here](/self-hosting/guides/docker).
 
 ## FAQ
 

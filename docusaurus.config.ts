@@ -34,6 +34,7 @@ const config: Config = {
                         from: '/self-hosting/environments/docker',
                         to: '/self-hosting/guides/docker',
                     },
+                    /*
                     {
                         from: '/self-hosting/kubernetes-helm',
                         to: '/self-hosting/guides/kubernetes-helm',
@@ -42,6 +43,7 @@ const config: Config = {
                         from: '/self-hosting/environments/kubernetes-helm',
                         to: '/self-hosting/guides/kubernetes-helm',
                     },
+                    */
                 ],
             }
         ]
@@ -87,7 +89,11 @@ const config: Config = {
     themeConfig: {
         image: 'img/og_image.png',
         navbar: {
-            title: 'solidtime',
+            logo: {
+                alt: 'Site Logo',
+                src: 'img/solidtime-logo.svg',
+                srcDark: 'img/solidtime-logo-dark-mode.svg',
+            },
             items: [
                 {
                     type: 'doc',
@@ -131,6 +137,7 @@ const config: Config = {
         prism: {
             theme: prismThemes.github,
             darkTheme: prismThemes.dracula,
+            additionalLanguages: ['bash'],
         },
     } satisfies Preset.ThemeConfig,
 };

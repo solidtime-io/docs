@@ -16,7 +16,7 @@ The super admin panel is made for technical users that are responsible for the s
 
 To access the super admin panel, you need to be a super admin. The super admins are defined in the `.env` file of the self-hosted solidtime instance.
 
-```dotenv
+```bash
 SUPER_ADMINS="chief.admin@somecompany.test,other.admin@somecompany.test"
 ```
 

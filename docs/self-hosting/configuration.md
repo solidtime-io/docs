@@ -13,7 +13,7 @@ The configuration contains placeholders (`your-domain.com`, `your-bucket-name`, 
 
 The configuration example below is for a production environment using HTTPS. You can adjust the values to your needs, in any case you will have to change `APP_URL` to the URL of your solidtime instance.
 
-```dotenv
+```bash
 APP_ENV="production"
 APP_DEBUG="false"
 APP_URL="https://your-domain.com"
@@ -31,7 +31,7 @@ TRUSTED_PROXIES="0.0.0.0/0,2000:0:0:0:0:0:0:0/3"
 
 You can run `docker run --rm solidtime/solidtime:main php artisan self-host:generate-keys` to obtain `APP_KEY`, `PASSPORT_PRIVATE_KEY` and `PASSPORT_PUBLIC_KEY`
 
-```dotenv
+```bash
 APP_KEY=""
 PASSPORT_PRIVATE_KEY=""
 PASSPORT_PUBLIC_KEY=""
@@ -51,21 +51,21 @@ You can read more about the logging configuration in the [Laravel documentation]
 
 **Store logs in files under storage/logs with one log file per day:**
 
-```dotenv
+```bash
 LOG_CHANNEL="daily"
 LOG_LEVEL="debug"
 ```
 
 **Output logs via stderr:**
 
-```dotenv
+```bash
 LOG_CHANNEL="stderr"
 LOG_LEVEL="debug"
 ```
 
 **Output logs via stderr and store the in daily log files:**
 
-```dotenv
+```bash
 LOG_CHANNEL="stderr_daily"
 LOG_LEVEL="debug"
 ```
@@ -75,7 +75,7 @@ LOG_LEVEL="debug"
 You can read more about the database configuration in the [Laravel documentation](https://laravel.com/docs/11.x/database#configuration).
 Please remember that solidtime only supports PostgreSQL.
 
-```dotenv
+```bash
 DB_HOST="your-database-host-or-ip"
 DB_PORT="5432"
 DB_SSLMODE="require"
@@ -90,7 +90,7 @@ Configure the email settings for sending emails. Solidtime supports every (trans
 
 ### Example using Scaleway TEM via SMTP
 
-```dotenv
+```bash
 MAIL_MAILER="smtp"
 MAIL_HOST="smtp.tem.scw.cloud"
 MAIL_PORT="465"
@@ -107,7 +107,7 @@ If you want to test f.e. the registration before setting up a transactional emai
 This logs outgoing emails to the log file.
 If you want to copy the link for the email verification, use the one from the textual, non-HTML version of the email in the log file.
 
-```dotenv
+```bash
 MAIL_MAILER="log"
 ```
 
@@ -119,7 +119,7 @@ You can read more about the queue configuration in the [Laravel documentation](h
 
 You can use this option if you don't want to use a separate Queue Worker (f.e. a `worker` container, see [Container Mode](./container-mode.md)) that handles queued jobs asynchronously. It will dispatch jobs synchronously. **We do not recommend using this option in production.** 
 
-```dotenv
+```bash
 QUEUE_CONNECTION="sync"
 ```
 
@@ -127,7 +127,7 @@ QUEUE_CONNECTION="sync"
 
 Please keep in mind that you need a separate Queue Worker (f.e. a `worker` container, see [Container Mode](./container-mode.md)) that handles queued jobs asynchronously to use this configuration option.
 
-```dotenv
+```bash
 QUEUE_CONNECTION="database"
 ```
 
@@ -143,14 +143,14 @@ You can read more about the file storage configuration in the [Laravel documenta
 
 ### Local Disk
 
-```dotenv
+```bash
 FILESYSTEM_DISK="local"
 PUBLIC_FILESYSTEM_DISK="public"
 ```
 
 ### Scaleway Object Storage
 
-```dotenv
+```bash
 FILESYSTEM_DISK="s3"
 PUBLIC_FILESYSTEM_DISK="s3"
 S3_REGION="fr-par" # fr-par, nl-ams, pl-waw

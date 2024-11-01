@@ -4,6 +4,7 @@ sidebar_position: 1
 # Docker
 
 This guide will help you to deploy solidtime using Docker and Docker Compose.
+It uses our official Docker images that are available on [Docker Hub](https://hub.docker.com/r/solidtime/solidtime).
 We have a repository with some example configurations for Docker Compose. You can find it [here](https://github.com/solidtime-io/self-hosting-examples).
 The guide will reference this repository.
 
