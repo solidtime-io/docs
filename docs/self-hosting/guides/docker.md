@@ -113,11 +113,41 @@ To do this you can set the environment variable `AUTO_DB_MIGRATE` to `true` in t
 
 You can now access the application in your browser. The URL depends on your setup.
 
-### 7. Testing the setup (optional)
+### 7. Create a user
+
+Depending on your configuration of the `APP_ENABLE_REGISTRATION` environment variable, you can either create a user via the registration form or you need to create a user via the CLI.
+Per default the registration is disabled.
+
+You can create a user via the CLI with the following command:
+
+```bash
+docker compose exec scheduler php artisan admin:user:create "Firstname Lastname" "firstname.lastname@some-email-provider.test" --verify-email
+```
+
+More information about the CLI commands can be found in the [CLI commands documentation](../cli-commands).
+
+If you want this first user to be a super admin, you can add the email address to the `SUPER_ADMINS` environment variable in the `laravel.env` file.
+
+```env
+SUPER_ADMINS="firstname.lastname@some-email-provider.test"
+```
+
+The command output a random password for the user.
+Afterwards you need to restart the containers:
+
+```bash
+docker compose down && docker compose up -d
+```
+
+Then you should be able log in with the user you created.
+If the user is a super admin, you can access the super admin panel via `/admin`.
+More information about the super admin panel can be found in the [super admin panel documentation](../super-admin-panel).
+
+### 8. Testing the setup (optional)
 
 You can find information about how to test the setup in the [testing documentation](../testing).
 
-### 8. Activate Desktop client access (optional)
+### 9. Activate Desktop client access (optional)
 
 The solidtime Desktop client authenticates with the API with OAuth.
 The Desktop client needs a client. You can create a client by running the following command:

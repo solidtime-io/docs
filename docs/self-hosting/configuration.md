@@ -86,6 +86,18 @@ DB_USERNAME="***"
 DB_PASSWORD="***"
 ```
 
+## PDF rendering
+
+If you want to use solidtime features that create PDFs, like exporting a report as PDF, you need to configure a PDF rendering server.
+solidtime uses [Gotenberg](https://gotenberg.dev/) to render PDFs.
+The application needs to be able to send requests to the Gotenberg server.
+The self-hosting guide already includes a Gotenberg container.
+The environment variable `GOTENBERG_URL` is used to configure the URL of the Gotenberg server.
+
+```bash
+GOTENBERG_URL=http://gotenberg:3000
+```
+
 ## Email
 
 Configure the email settings for sending emails. Solidtime supports every (transactional) mail service that offers an SMTP integration.  
