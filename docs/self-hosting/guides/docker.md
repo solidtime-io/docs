@@ -167,6 +167,35 @@ There you can enter the API URL and the client ID.
 
 <img src="/img/solidtime-desktop-instance-settings-2.png" alt="Screenshot of soldtime Desktop showing the Instance Settings interface" width="500" />
 
+### 10. Activate API access via user API tokens (optional)
+
+solidtime has a feature that allows users to create API tokens to access the API.
+This can be used to automate tasks or to create integrations with other services.
+
+To activate this feature you need to create a OAuth client via the CLI.
+
+```bash
+docker compose exec scheduler php artisan passport:client --personal --name="API"
+```
+
+This command will create the client in the database and output the client ID and the client secret.
+The client ID and the client need to be added to the `laravel.env` file.
+
+```env
+PASSPORT_PERSONAL_ACCESS_CLIENT_ID="insert-id"
+PASSPORT_PERSONAL_ACCESS_CLIENT_SECRET="insert-secret"
+```
+
+After you added the client ID and the client secret to the `laravel.env` file, you need to restart the containers.
+
+```bash
+docker compose down && docker compose up -d
+```
+
+Now users can create API tokens in the user settings.
+Read more about how you can create an API token and how to use the API [here](/user-guide/access-api).
+
+
 ## Update
 
 To update solidtime, you can pull the latest image from the Docker registry.
