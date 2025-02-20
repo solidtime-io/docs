@@ -7,7 +7,7 @@ sidebar_position: 1
 Welcome to the **Self-Hosting** section of the **solidtime documentation**!
 This guide is for users who want to learn how to self-host solidtime.
 
-If you have problems with the self-hosting guide, please open an issue on [GitHub](https://github.com/solidtime-io/solidtime/issues) or join our [Discord server](https://discord.gg/Wd7pNH5S64).
+If you have problems with the self-hosting guide, please open an issue on [GitHub](https://github.com/solidtime-io/solidtime/issues) or join our [Discord server](https://discord.gg/Ge6mJpapVR).
 
 ## Getting Started
 
