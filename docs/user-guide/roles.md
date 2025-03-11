@@ -13,7 +13,7 @@ The owner has full access of the organization.
 The owner is the only role that can:
  - delete the organization
  - transfer the ownership to another user
- - solidtime cloud: access to the billing settings
+ - solidtime Cloud: access to the billing settings
 
 ## Admin
 
@@ -38,11 +38,11 @@ Placeholder users are used for imports and to remove users from the organization
 If you are importing data from another time tracking tool, the importer, depending on the data, needs to create users in the organization.
 Since you might want to invite users to solidtime one by one, the importer only creates placeholder users, that will be used for their time entries.
 
-**Remove users**
+**Deactivate members**
 
-Note: This feature will be available soon
+If you want to remove a user from the organization, but you don't want to delete their time entries, you can deactivate the member from the organization and the user will be converted to a placeholder user.
+If you use solidtime Cloud, those deactivated members are also not billed.
 
-If you want to remove a user from the organization, but you don't want to delete their time entries, you can remove the user from the organization and the user will be converted to a placeholder user.
 
 ### Invite placeholder users to become real users
 
