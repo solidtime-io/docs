@@ -89,6 +89,60 @@ Then restart the Docker containers with:
 
 You should now be able to access the application at [http://solidtime.test](http://solidtime.test) and the Vite server at [http://vite.solidtime.test](http://vite.solidtime.test).
 
+## CLI tools
+
+### Code formatting
+
+You can format the PHP code with the following command:
+
+```bash
+./vendor/bin/sail composer fix
+```
+
+The frontend code can be formatted with:
+
+```bash
+./vendor/bin/sail npm run lint:fix
+```
+
+### Static code analysis
+
+You can run the static code analysis for the PHP code with:
+
+```bash
+./vendor/bin/sail composer analyse
+```
+
+### Unit tests
+
+You can run the unit tests with the following command:
+
+```bash
+./vendor/bin/sail php artisan test
+```
+
+If you want to run only some test you can use the `--filter` option:
+
+```bash
+./vendor/bin/sail php artisan test --filter SomeTestName
+```
+
+If you want to run all test as fast as possible, for example right before a commit, you can use this command:
+
+```bash
+./vendor/bin/sail composer ptest
+```
+
+### Generate ZOD Client
+
+The Zodius HTTP client is generated using the following command:
+
+```bash
+npm run zod:generate
+```
+
+## E2E Tests
+
 ### Running E2E Tests
 
 `./vendor/bin/sail up -d ` will automatically start a Playwright UI server that you can access at `https://playwright.solidtime.test`.
@@ -107,11 +161,3 @@ npx playwright codegen solidtime.test
 
 If E2E tests are not working at all, make sure you do not have the Vite server running and just run `npm run build` to update the version.
 If the E2E tests are not working consistently and fail with a timeout during the authentication, you might want to delete the `test-results/.auth` directory to force new test accounts to be created.
-
-### Generate ZOD Client
-
-The Zodius HTTP client is generated using the following command:
-
-```bash
-npm run zod:generate
-```
