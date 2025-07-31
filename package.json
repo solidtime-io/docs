@@ -20,18 +20,18 @@
     "@docusaurus/plugin-sitemap": "^3.8.1",
     "@docusaurus/preset-classic": "^3.8.1",
     "@mdx-js/react": "^3.0.0",
-    "@scalar/docusaurus": "^0.4.196",
+    "@scalar/docusaurus": "^0.7.11",
     "clsx": "^2.0.0",
     "docusaurus-lunr-search": "^3.3.2",
     "prism-react-renderer": "^2.3.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.8.1",
     "@docusaurus/tsconfig": "^3.8.1",
     "@docusaurus/types": "^3.8.1",
-    "typescript": "~5.2.2"
+    "typescript": "~5.8.3"
   },
   "browserslist": {
     "production": [
