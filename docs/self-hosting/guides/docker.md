@@ -223,3 +223,29 @@ docker compose exec scheduler php artisan migrate --force
 ```bash
 docker system prune -a -f
 ```
+
+### Postgres database
+
+#### Collation version mismatch
+
+If you get an error about a collation version mismatch, you need to update the collation of the database.
+
+The warning might look like this:
+
+```
+WARNING: database "<your_database_name>" has a collation version mismatch
+```
+
+You can fix this by running the following command:
+
+```bash
+docker compose exec database psql -U <your_database_username>
+```
+
+This will open a Postgres shell. Then you can run the following command to update the collation:
+
+```sql
+REINDEX DATABASE <your_database_name>;
+
+ALTER DATABASE <your-database-name> REFRESH COLLATION VERSION;
+```

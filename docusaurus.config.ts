@@ -108,6 +108,12 @@ const config: Config = {
                     label: 'Self-hosting',
                 },
                 {
+                    type: 'doc',
+                    docId: 'development/intro',
+                    position: 'left',
+                    label: 'Development',
+                },
+                {
                     href: 'https://www.solidtime.io',
                     label: 'Homepage',
                     position: 'right',
