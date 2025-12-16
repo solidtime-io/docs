@@ -167,7 +167,23 @@ There you can enter the API URL and the client ID.
 
 <img src="/img/solidtime-desktop-instance-settings-2.png" alt="Screenshot of soldtime Desktop showing the Instance Settings interface" width="500" />
 
-### 10. Activate API access via user API tokens (optional)
+### 10. Activate Browser Extensions access (optional)
+
+The solidtime Browser Extensions authenticate with the API with OAuth.
+The Browser Extensions need a client. You can create a client by running the following command:
+
+```bash
+docker compose exec scheduler php artisan passport:client --name=browser-extensions --redirect_uri=https://hello@solidtime.io.extensions.allizom.org/,https://hpanifeankiobmgbemnhjmhpjeebdhdd.chromiumapp.org/ --public -n
+```
+
+This command will output the client ID. Write down the client ID, you will need it to configure the Browser Extensions.
+
+You can download the Browser Extensions from:
+
+- [Chrome Web Store](https://chromewebstore.google.com/detail/solidtime/hpanifeankiobmgbemnhjmhpjeebdhdd)
+- [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/solidtime/)
+
+### 11. Activate API access via user API tokens (optional)
 
 solidtime has a feature that allows users to create API tokens to access the API.
 This can be used to automate tasks or to create integrations with other services.
