@@ -173,7 +173,7 @@ The solidtime Browser Extensions authenticate with the API with OAuth.
 The Browser Extensions need a client. You can create a client by running the following command:
 
 ```bash
-docker compose exec scheduler php artisan passport:client --name=browser-extensions --redirect_uri=https://hello@solidtime.io.extensions.allizom.org/,https://hpanifeankiobmgbemnhjmhpjeebdhdd.chromiumapp.org/ --public -n
+docker compose exec scheduler php artisan passport:client --name=browser-extension --redirect_uri=https://hello@solidtime.io.extensions.allizom.org/,https://hpanifeankiobmgbemnhjmhpjeebdhdd.chromiumapp.org/ --public -n
 ```
 
 This command will output the client ID. Write down the client ID, you will need it to configure the Browser Extensions.
