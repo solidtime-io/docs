@@ -159,7 +159,7 @@ docker compose exec scheduler php artisan passport:client --name=desktop --redir
 This command will output the client ID. Write down the client ID, you will need it to configure the Desktop client.
 
 In the solidtime Desktop you can now Configure the API URL and the client ID.
-For that start the app and click on "Instance Settings". 
+For that start the app and click on "Instance Settings".
 
 <img src="/img/solidtime-desktop-instance-settings-1.png" alt="Screenshot of soldtime Desktop showing the start screen with an arrow on the Instance Settings button" width="500" />
 
@@ -173,7 +173,7 @@ The solidtime Browser Extensions authenticate with the API with OAuth.
 The Browser Extensions need a client. You can create a client by running the following command:
 
 ```bash
-docker compose exec scheduler php artisan passport:client --name=browser-extension --redirect_uri=https://hello@solidtime.io.extensions.allizom.org/,https://hpanifeankiobmgbemnhjmhpjeebdhdd.chromiumapp.org/ --public -n
+docker compose exec scheduler php artisan passport:client --name=browser-extension --redirect_uri=https://3369f72567118d8c03fb34880e9d6378d3b0c569.extensions.allizom.org/,https://hpanifeankiobmgbemnhjmhpjeebdhdd.chromiumapp.org/ --public -n
 ```
 
 This command will output the client ID. Write down the client ID, you will need it to configure the Browser Extensions.
