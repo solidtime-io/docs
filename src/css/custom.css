@@ -28,3 +28,25 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Theme-aware images: pair a .theme-image-light and a .theme-image-dark and only
+   the variant matching the current Docusaurus theme is rendered. */
+[data-theme='light'] .theme-image-dark,
+[data-theme='dark'] .theme-image-light {
+  display: none;
+}
+
+/* Collapsible <details> blocks default to the info-blue palette. Switch to a
+   neutral gray using Infima's emphasis tokens, which auto-flip across themes —
+   except in light mode where we want a plain white background. */
+details.alert--info {
+  --ifm-alert-background-color: var(--ifm-color-emphasis-100);
+  --ifm-alert-background-color-highlight: rgba(128, 128, 128, 0.15);
+  --ifm-alert-foreground-color: var(--ifm-color-emphasis-900);
+  --ifm-alert-border-color: var(--ifm-color-emphasis-300);
+  --docusaurus-details-decoration-color: var(--ifm-color-emphasis-400);
+}
+
+[data-theme='light'] details.alert--info {
+  --ifm-alert-background-color: white;
+}
