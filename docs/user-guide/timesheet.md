@@ -54,6 +54,8 @@ Every entry in the cell is deleted in a single request, with no confirmation dia
 If a timer is currently running in the Time Tracker, its matching cell in the timesheet is disabled — hovering it shows _Stop the running time entry to edit the timesheet_. Stop the timer to make the cell editable again. This prevents accidentally changing the duration of a live entry.
 :::
 
+If break tracking is enabled for your organization, the grid also shows a pinned **Break** row at the bottom. See [Breaks](./breaks.md) for how break entries are placed.
+
 ## Adding a row
 
 If the project or task you want to log time on isn't shown yet, click **Add row** at the bottom of the grid and pick a project (and optionally a task). You can search by typing, and create a new project inline if you have permission.
