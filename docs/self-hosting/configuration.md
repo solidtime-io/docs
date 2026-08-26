@@ -174,3 +174,20 @@ S3_ENDPOINT="https://s3.fr-par.scw.cloud" # Replace fr-par with your region
 S3_ACCESS_KEY_ID="***"
 S3_SECRET_ACCESS_KEY="***"
 ```
+
+## API Rate Limiting
+
+The [API](/user-guide/access-api) is rate limited to protect the application against excessive use.
+Authenticated requests are counted per user, guest requests are counted per IP address.
+If you hit the limits, f.e. because of integrations that make a lot of API requests, you can increase them via the following environment variables. Note that the web app also uses the API and requests via the web app count towards the API Rate Limits. 
+The rate limits are only enforced if `APP_ENV` is set to `production`.
+
+```bash
+API_RATE_LIMIT_AUTH_PER_MINUTE="200"
+API_RATE_LIMIT_GUEST_PER_MINUTE="60"
+```
+
+| Env variable name               | Description                                                                                 |
+|---------------------------------|---------------------------------------------------------------------------------------------|
+| API_RATE_LIMIT_AUTH_PER_MINUTE  | Number of API requests per minute that an authenticated user can make (default: `200`)      |
+| API_RATE_LIMIT_GUEST_PER_MINUTE | Number of API requests per minute that a guest can make, counted per IP address (default: `60`) |
