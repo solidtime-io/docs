@@ -18,7 +18,7 @@ APP_ENV="production"
 APP_DEBUG="false"
 APP_URL="https://your-domain.com"
 APP_FORCE_HTTPS="true"
-APP_ENABLE_REGISTRATION="true"
+APP_ENABLE_REGISTRATION="on"
 TRUSTED_PROXIES="0.0.0.0/0,2000:0:0:0:0:0:0:0/3"
 ```
 
@@ -26,7 +26,7 @@ TRUSTED_PROXIES="0.0.0.0/0,2000:0:0:0:0:0:0:0/3"
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | APP_URL                 | Base URL (f.e. `https://your-domain.com` for a production setup or something like `http://localhost:8000` for a local HTTP-only setup)                                                                                                                                                                                                                         |
 | APP_FORCE_HTTPS         | If enabled, the application will threat all request as if they were HTTPS. This is useful if the app is behind a reverse proxy and the reverse proxy is HTTPS-only but the communication between reverse proxy and app is HTTP.                                                                                                                                |
-| APP_ENABLE_REGISTRATION | If enabled, users can register an account. If disabled, only users with an account can log in, but it is still possible to create users in the [super admin panel](/self-hosting/super-admin-panel) and via the [CLI](/self-hosting/cli-commands).                                                                                                             |
+| APP_ENABLE_REGISTRATION | Controls who can register an account. Supported values: `on` — everyone can register; `invite-only` — only users who accepted an organization invitation for their email address can register (users with a pending invitation are asked to accept it first); `off` — registration is disabled, only users with an existing account can log in, but it is still possible to create users in the [super admin panel](/self-hosting/super-admin-panel) and via the [CLI](/self-hosting/cli-commands). The values `true` and `false` are still supported for backwards compatibility and behave like `on` and `off`.                                                                                                             |
 | TRUSTED_PROXIES         | Comma-seperated list of CIDR IP ranges that are considered trusted. The app will trust headers like the `X-Forwarded-For` requests from those IPs. The example above (`0.0.0.0/0,2000:0:0:0:0:0:0:0/3`) is a wildcard for all IP addresses. This is only safe, if it's not possible to bypass the reverse proxy and the reverse proxy is correctly configured. |
 | TRUSTED_HOSTS           | Comma-seperated list of additional hostnames that the application accepts requests on. By default, requests are only accepted if their `Host` header matches the hostname of `APP_URL` or a subdomain of it. Requests on any other hostname are rejected to prevent Host header poisoning of generated links (f.e. password reset links). Set this variable if your instance is reachable under more than one hostname, f.e. `TRUSTED_HOSTS="solidtime.internal,*.your-tailnet.ts.net"`. An entry like `*.example.com` matches all subdomains of `example.com`, but not `example.com` itself. |
 
