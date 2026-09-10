@@ -242,7 +242,7 @@ WARNING: database "<your_database_name>" has a collation version mismatch
 You can fix this by running the following command:
 
 ```bash
-docker compose exec database psql -U <your_database_username>
+docker compose exec database psql <your_database_name> -U <your_database_username>
 ```
 
 This will open a Postgres shell. Then you can run the following command to update the collation:
