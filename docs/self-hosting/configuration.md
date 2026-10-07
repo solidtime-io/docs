@@ -81,10 +81,20 @@ Please remember that solidtime only supports PostgreSQL.
 ```bash
 DB_HOST="your-database-host-or-ip"
 DB_PORT="5432"
-DB_SSLMODE="require"
+DB_SSL_MODE="prefer"
 DB_DATABASE="***"
 DB_USERNAME="***"
 DB_PASSWORD="***"
+```
+
+`DB_SSL_MODE` sets the [PostgreSQL SSL mode](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION) of the connection and defaults to `prefer`.
+If you use an external database that supports SSL, you can set it to `require` to enforce an encrypted connection.
+Do not set it to `require` (or stricter) when using the database container from the self-hosting guide, since it does not support SSL.
+
+Alternatively, you can configure the connection with a single URL via `DB_URL` (`DATABASE_URL` is supported as a fallback):
+
+```bash
+DB_URL="postgresql://username:password@your-database-host-or-ip:5432/database?sslmode=prefer"
 ```
 
 ## PDF rendering
