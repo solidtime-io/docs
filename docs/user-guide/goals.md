@@ -6,16 +6,16 @@ sidebar_position: 5.5
 
 Goals let you set yourself a time target and follow your progress towards it, for example _track at least 6 hours per day_, _spend 20 hours per week on a project_ or _keep meetings under 5 hours per week_. solidtime counts your tracked time against the target in the current day, week or month and shows you at a glance whether you're on track.
 
-Goals are **personal**: only the member who created a goal can see, edit, or delete it. Owners and admins of the organization can't see the goals of other members in solidtime.
-
-:::note Exports and the super admin panel
-Goals are part of the [organization export](./export.md), so owners and admins who export the organization get the goals of all members, including personal ones. On self-hosted instances, [super admins](/self-hosting/super-admin-panel) can also see every goal in the super admin panel.
-:::
+Goals are **personal**: only the member who created a goal can see, edit, or delete it inside of solidtime.
 
 Open them from **Goals** in the left sidebar, or type _Goals_ into the command palette.
 
 <img class="theme-image-light" src="/img/goals/goals-overview-light.png" width="1137" alt="The Goals page listing five goals with their target, scope, progress bar and status" />
 <img class="theme-image-dark" src="/img/goals/goals-overview-dark.png" width="1137" alt="The Goals page listing five goals with their target, scope, progress bar and status" />
+
+:::note Goals are organization data
+Goals are stored as part of the organization, so they can be included wherever organization data is processed, for example in [organization exports](./export.md) or, on self-hosted instances, in the [super admin panel](/self-hosting/super-admin-panel).
+:::
 
 ## Creating a goal
 
