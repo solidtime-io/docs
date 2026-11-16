@@ -18,7 +18,7 @@ APP_ENV="production"
 APP_DEBUG="false"
 APP_URL="https://your-domain.com"
 APP_FORCE_HTTPS="true"
-APP_ENABLE_REGISTRATION="true"
+APP_ENABLE_REGISTRATION="on"
 TRUSTED_PROXIES="0.0.0.0/0,2000:0:0:0:0:0:0:0/3"
 ```
 
@@ -26,8 +26,9 @@ TRUSTED_PROXIES="0.0.0.0/0,2000:0:0:0:0:0:0:0/3"
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | APP_URL                 | Base URL (f.e. `https://your-domain.com` for a production setup or something like `http://localhost:8000` for a local HTTP-only setup)                                                                                                                                                                                                                         |
 | APP_FORCE_HTTPS         | If enabled, the application will threat all request as if they were HTTPS. This is useful if the app is behind a reverse proxy and the reverse proxy is HTTPS-only but the communication between reverse proxy and app is HTTP.                                                                                                                                |
-| APP_ENABLE_REGISTRATION | If enabled, users can register an account. If disabled, only users with an account can log in, but it is still possible to create users in the [super admin panel](/self-hosting/super-admin-panel) and via the [CLI](/self-hosting/cli-commands).                                                                                                             |
+| APP_ENABLE_REGISTRATION | Controls who can register an account. Supported values: `on` — everyone can register; `invite-only` — only users who accepted an organization invitation for their email address can register (users with a pending invitation are asked to accept it first); `off` — registration is disabled, only users with an existing account can log in, but it is still possible to create users in the [super admin panel](/self-hosting/super-admin-panel) and via the [CLI](/self-hosting/cli-commands). The values `true` and `false` are still supported for backwards compatibility and behave like `on` and `off`.                                                                                                             |
 | TRUSTED_PROXIES         | Comma-seperated list of CIDR IP ranges that are considered trusted. The app will trust headers like the `X-Forwarded-For` requests from those IPs. The example above (`0.0.0.0/0,2000:0:0:0:0:0:0:0/3`) is a wildcard for all IP addresses. This is only safe, if it's not possible to bypass the reverse proxy and the reverse proxy is correctly configured. |
+| TRUSTED_HOSTS           | Comma-seperated list of additional hostnames that the application accepts requests on. By default, requests are only accepted if their `Host` header matches the hostname of `APP_URL` or a subdomain of it. Requests on any other hostname are rejected to prevent Host header poisoning of generated links (f.e. password reset links). Set this variable if your instance is reachable under more than one hostname, f.e. `TRUSTED_HOSTS="solidtime.internal,*.your-tailnet.ts.net"`. An entry like `*.example.com` matches all subdomains of `example.com`, but not `example.com` itself. |
 
 ## Authentication
 
@@ -80,10 +81,20 @@ Please remember that solidtime only supports PostgreSQL.
 ```bash
 DB_HOST="your-database-host-or-ip"
 DB_PORT="5432"
-DB_SSLMODE="require"
+DB_SSL_MODE="prefer"
 DB_DATABASE="***"
 DB_USERNAME="***"
 DB_PASSWORD="***"
+```
+
+`DB_SSL_MODE` sets the [PostgreSQL SSL mode](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION) of the connection and defaults to `prefer`.
+If you use an external database that supports SSL, you can set it to `require` to enforce an encrypted connection.
+Do not set it to `require` (or stricter) when using the database container from the self-hosting guide, since it does not support SSL.
+
+Alternatively, you can configure the connection with a single URL via `DB_URL` (`DATABASE_URL` is supported as a fallback):
+
+```bash
+DB_URL="postgresql://username:password@your-database-host-or-ip:5432/database?sslmode=prefer"
 ```
 
 ## PDF rendering
@@ -173,3 +184,20 @@ S3_ENDPOINT="https://s3.fr-par.scw.cloud" # Replace fr-par with your region
 S3_ACCESS_KEY_ID="***"
 S3_SECRET_ACCESS_KEY="***"
 ```
+
+## API Rate Limiting
+
+The [API](/user-guide/access-api) is rate limited to protect the application against excessive use.
+Authenticated requests are counted per user, guest requests are counted per IP address.
+If you hit the limits, f.e. because of integrations that make a lot of API requests, you can increase them via the following environment variables. Note that the web app also uses the API and requests via the web app count towards the API Rate Limits. 
+The rate limits are only enforced if `APP_ENV` is set to `production`.
+
+```bash
+API_RATE_LIMIT_AUTH_PER_MINUTE="200"
+API_RATE_LIMIT_GUEST_PER_MINUTE="60"
+```
+
+| Env variable name               | Description                                                                                 |
+|---------------------------------|---------------------------------------------------------------------------------------------|
+| API_RATE_LIMIT_AUTH_PER_MINUTE  | Number of API requests per minute that an authenticated user can make (default: `200`)      |
+| API_RATE_LIMIT_GUEST_PER_MINUTE | Number of API requests per minute that a guest can make, counted per IP address (default: `60`) |
