@@ -134,7 +134,7 @@ To keep a closed instance (registration off) while new colleagues get accounts a
   - Accounts with two-factor authentication are never linked automatically. These users see a message asking them to log in with their password.
   - The account owner gets an email that "a ... sign-in was connected to your solidtime account".
   - If the provider has an organization, the linked user joins it once. If you later remove them from the organization, the next sign-in doesn't add them again.
-- **Trust email without "email_verified"**: treats every email from this IdP as verified. Only for IdPs that send neither `email_verified` nor `xms_edov`, and only for a directory you control, because solidtime then believes any address the IdP sends. It can't be turned on for Google or Microsoft personal accounts. Leave it off otherwise.
+- **Trust email without "email_verified"**: treats every email from this IdP as verified. Only for IdPs that send neither `email_verified` nor `xms_edov`, and only for a directory you control, because solidtime then believes any address the IdP sends. Leave it off otherwise.
 
 New and email-linked accounts need an `email` claim that the IdP marks as verified with `email_verified: true`. Microsoft Entra ID sends `xms_edov` instead, which solidtime accepts too. Users who are already linked don't need a verified email, unless the provider has **Allowed email domains**: an unverified email never matches them.
 
