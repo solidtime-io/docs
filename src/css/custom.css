@@ -50,3 +50,49 @@ details.alert--info {
 [data-theme='light'] details.alert--info {
   --ifm-alert-background-color: white;
 }
+
+/* Provider guides overview: logo cards. Logos sit on a white tile so brand
+   colors stay readable in dark mode. */
+.sso-provider-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.sso-provider-card {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-card-border-radius, 8px);
+  color: var(--ifm-font-color-base);
+  font-weight: 600;
+  transition: border-color 150ms, box-shadow 150ms;
+}
+
+.sso-provider-card:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.sso-provider-logo {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.4rem;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--ifm-color-emphasis-200);
+}
+
+.sso-provider-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

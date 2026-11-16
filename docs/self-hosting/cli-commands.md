@@ -20,3 +20,13 @@ This command creates a new user in the solidtime application. Per default this c
 ## `artisan admin:user:verify [email]`
 
 This command verifies the email address of a user.
+
+## `artisan sso:revoke-non-sso-credentials`
+
+Requires the SSO extension of [On-Premise Business](/self-hosting/on-premise-business). Revokes the API tokens and app logins of all users except super admins, so everyone has to sign in through SSO again. Only runs while SSO is enforced. See [Enforcing SSO](/self-hosting/single-sign-on/enforcing-sso#revoke-existing-api-tokens).
+
+### Options
+
+| Name      | Default | Description                       |
+|-----------|---------|-----------------------------------|
+| `--force` |         | Don't ask for confirmation.       |

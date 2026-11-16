@@ -1,0 +1,25 @@
+---
+title: Provider guides
+sidebar_label: Provider guides
+---
+
+import Link from '@docusaurus/Link';
+
+# Provider guides
+
+Step-by-step setup for each identity provider. Each guide covers the provider's side; for the solidtime side, see [Adding an identity provider](../adding-a-provider.md).
+
+export const providers = [
+  { name: 'Keycloak', href: '/self-hosting/single-sign-on/providers/keycloak', logo: 'keycloak' },
+  { name: 'Google Workspace', href: '/self-hosting/single-sign-on/providers/google-workspace', logo: 'google' },
+  { name: 'Other OIDC providers', href: '/self-hosting/single-sign-on/providers/other-oidc-providers', logo: 'openid' },
+];
+
+<div className="sso-provider-grid">
+  {providers.map((p) => (
+    <Link key={p.href} className="sso-provider-card" to={p.href}>
+      <span className="sso-provider-logo"><img src={`/img/sso/logos/${p.logo}.svg`} alt="" /></span>
+      <span>{p.name}</span>
+    </Link>
+  ))}
+</div>
