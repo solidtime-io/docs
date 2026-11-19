@@ -168,7 +168,7 @@ How required claims are matched:
 
 The [provider guides](./providers) show how to add a groups claim at each IdP.
 
-### Instance settings
+### Registration and Enforce SSO
 
 <img class="theme-image-light" src="/img/sso/sso-admin-behavior-instance-light.png" width="896" alt="Registration On, set by APP_ENABLE_REGISTRATION, and Enforce SSO Off, set by SSO_ENFORCE_SSO" />
 <img class="theme-image-dark" src="/img/sso/sso-admin-behavior-instance-dark.png" width="896" alt="Registration On, set by APP_ENABLE_REGISTRATION, and Enforce SSO Off, set by SSO_ENFORCE_SSO" />

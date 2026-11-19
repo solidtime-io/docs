@@ -15,7 +15,7 @@ solidtime tries these in order:
 2. **Existing account with the same email.** If [**Allow email-based account linking**](./adding-a-provider#email-linking-and-verification) is on, an existing solidtime account with the same, verified email address is linked and signed in.
 3. **New account.** If [**Auto provision**](./adding-a-provider#new-accounts) is on, a new account is created and linked.
 
-If none of these apply, the sign-in is refused with "Account not found. Contact your administrator to get access."
+If none of these apply, the sign-in is refused with "Account not found. Contact your administrator to get access." If an account with the email exists but can't be linked, the user sees "An account with this email address already exists, but it is not connected to this identity provider." instead, with a hint to sign in with their password or the way they signed in before. If that account has two-factor authentication turned on, the user is asked to log in with their password instead.
 
 <img class="theme-image-light" src="/img/sso/sso-login-error-light.png" width="568" alt="The login page with the error message Account not found. Contact your administrator to get access." />
 <img class="theme-image-dark" src="/img/sso/sso-login-error-dark.png" width="568" alt="The login page with the error message Account not found. Contact your administrator to get access." />
@@ -33,7 +33,7 @@ The **Linked users** table on a provider's edit page lists every solidtime accou
 <img class="theme-image-light" src="/img/sso/sso-admin-linked-users-light.png" width="896" alt="The Linked users table with jane.doe@your-company.com, her name, her subject and the date she was linked, and an Unlink action" />
 <img class="theme-image-dark" src="/img/sso/sso-admin-linked-users-dark.png" width="896" alt="The Linked users table with jane.doe@your-company.com, her name, her subject and the date she was linked, and an Unlink action" />
 
-**Unlink** removes the connection. It doesn't delete the account. The user's sessions through this provider end on their next request, and their next sign-in with this provider is treated like a first sign-in (auto-provisioning or email linking, depending on your settings). solidtime refuses to unlink a user if it is their only way to sign in.
+**Unlink** removes the connection. It doesn't delete the account. The user's sessions through this provider end on their next request, and their next sign-in with this provider is treated like a first sign-in (auto-provisioning or email linking, depending on your settings). If the link is their only way to sign in, they can set a password through "Forgot password" afterwards. While SSO is enforced, solidtime refuses to unlink them, because they couldn't set a password either.
 
 Links can't be created by hand. They are only created by a successful sign-in, because the subject must be exactly what the IdP sends.
 

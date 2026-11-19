@@ -14,7 +14,7 @@ You need:
 
 :::info
 
-Google is a **public issuer**: anyone with a Google account can sign in at Google, including personal accounts registered with your company's email address. solidtime therefore requires the `hd` (hosted domain) claim rule described in step 3 before it adds users to your organization or links accounts by email.
+Google is a **public issuer**: anyone with a Google account can sign in at Google, including personal accounts registered with your company's email address. solidtime therefore requires the `hd` (hosted domain) claim rule described in step 3 before it adds users to your organization. Without the rule, email linking only links Gmail addresses and Workspace accounts whose email is on their own domain, since Google controls those mailboxes.
 
 :::
 
@@ -54,7 +54,7 @@ Edit the provider in solidtime and fill in [Credentials and endpoints](../adding
 
 Under [**Behavior**](../adding-a-provider#4-behavior):
 
-- **Required claims**: claim `hd`, value your Workspace's primary domain, for example `your-company.com`. For several domains, add one value per domain. Always set it: without it, any Google account can sign in, and solidtime refuses to add users to an organization or link accounts by email.
+- **Required claims**: claim `hd`, value your Workspace's primary domain, for example `your-company.com`. For several domains, add one value per domain. Always set it: without it, any Google account can sign in, and solidtime refuses to add users to an organization.
 - **Allowed email domains**: the same domain(s).
 - **Auto provision** and **Organization** as you need them (see [New accounts](../adding-a-provider#new-accounts)).
 
