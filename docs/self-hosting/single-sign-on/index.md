@@ -17,6 +17,8 @@ SSO is part of [On-Premise Business](/self-hosting/on-premise-business).
 Any identity provider that supports the OpenID Connect authorization code flow works. These have a step-by-step guide:
 
 - [Keycloak](./providers/keycloak.md)
+- [Microsoft Entra ID](./providers/microsoft-entra-id.md) (formerly Azure AD)
+- [Okta](./providers/okta.md)
 - [Google Workspace](./providers/google-workspace.md)
 - [Other OIDC providers](./providers/other-oidc-providers.md) (Kanidm, Ory, PingFederate, JumpCloud, OneLogin, ...)
 

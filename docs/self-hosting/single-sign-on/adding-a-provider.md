@@ -136,7 +136,7 @@ To keep a closed instance (registration off) while new colleagues get accounts a
   - If the provider has an organization, the linked user joins it once. If you later remove them from the organization, the next sign-in doesn't add them again.
 - **Trust email without "email_verified"**: treats every email from this IdP as verified. Only for IdPs that send neither `email_verified` nor `xms_edov`, and only for a directory you control, because solidtime then believes any address the IdP sends. Leave it off otherwise.
 
-New and email-linked accounts need an `email` claim that the IdP marks as verified with `email_verified: true`. Microsoft Entra ID sends `xms_edov` instead, which solidtime accepts too. Users who are already linked don't need a verified email, unless the provider has **Allowed email domains**: an unverified email never matches them.
+New and email-linked accounts need an `email` claim that the IdP marks as verified with `email_verified: true`. Microsoft Entra ID sends `xms_edov` instead (see the [Entra guide](./providers/microsoft-entra-id#3-add-the-email-claims)), which solidtime accepts too. Users who are already linked don't need a verified email, unless the provider has **Allowed email domains**: an unverified email never matches them.
 
 ### Allowed email domains
 
