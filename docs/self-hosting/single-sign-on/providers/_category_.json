@@ -1,0 +1,10 @@
+{
+  "position": 3,
+  "label": "Provider guides",
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "doc",
+    "id": "self-hosting/single-sign-on/providers/index"
+  }
+}

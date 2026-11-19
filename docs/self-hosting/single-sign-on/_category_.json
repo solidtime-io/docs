@@ -1,0 +1,10 @@
+{
+  "position": 7,
+  "label": "Single Sign-On (SSO)",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "self-hosting/single-sign-on/index"
+  }
+}
