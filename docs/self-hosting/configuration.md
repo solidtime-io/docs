@@ -51,6 +51,19 @@ SUPER_ADMINS=""
 ## Single Sign-On (SSO)
 
 Signing in through your company's identity provider (OIDC), including how to require it for all users, is described on the [Single Sign-On page](/self-hosting/single-sign-on).
+Providers are configured in the super admin panel, the following environment variables control the instance-wide SSO behavior:
+
+```bash
+SSO_ENFORCE_SSO="false"
+SSO_ALLOW_HTTP_ENDPOINTS="false"
+SSO_LOGIN_RATE_LIMIT_PER_MINUTE="600"
+```
+
+| Env variable name               | Description                                                                                                                                                                             |
+|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SSO_ENFORCE_SSO                 | Require SSO for everyone except super admins (see [Enforcing SSO](/self-hosting/single-sign-on/enforcing-sso)). Applies even while no provider is active, so only turn it on once a provider works (default: `false`) |
+| SSO_ALLOW_HTTP_ENDPOINTS        | Allow identity provider endpoints over plain HTTP. Only meant for local testing (default: `true` if `APP_ENV` is `local` or `testing`, otherwise `false`)                               |
+| SSO_LOGIN_RATE_LIMIT_PER_MINUTE | Maximum number of requests per minute and IP address to the SSO routes. The default is high on purpose, because a company's users often share one IP address (default: `600`)           |
 
 ## Logging
 
@@ -205,3 +218,21 @@ API_RATE_LIMIT_GUEST_PER_MINUTE="60"
 |---------------------------------|---------------------------------------------------------------------------------------------|
 | API_RATE_LIMIT_AUTH_PER_MINUTE  | Number of API requests per minute that an authenticated user can make (default: `200`)      |
 | API_RATE_LIMIT_GUEST_PER_MINUTE | Number of API requests per minute that a guest can make, counted per IP address (default: `60`) |
+
+## Update Check and Telemetry
+
+solidtime regularly contacts the solidtime API twice a day to check for new versions and to send anonymous telemetry data. The exact times are derived from your `APP_KEY`, so requests from different instances are spread over the day.
+The update check sends your solidtime version, build and `APP_URL` and shows the latest available version in the [super admin panel](./super-admin-panel).
+Telemetry sends the same information plus the number of records in the main tables (users, organizations, projects, project members, clients, tasks, time entries and audits). Only counts are sent, no actual data.
+
+Both tasks are enabled by default and can be deactivated via the following environment variables:
+
+```bash
+SCHEDULING_TASK_SELF_HOSTING_CHECK_FOR_UPDATE="false"
+SCHEDULING_TASK_SELF_HOSTING_TELEMETRY="false"
+```
+
+| Env variable name                             | Description                                                                               |
+|-----------------------------------------------|-------------------------------------------------------------------------------------------|
+| SCHEDULING_TASK_SELF_HOSTING_CHECK_FOR_UPDATE | Enables the scheduled check for new solidtime versions (default: `true`)                  |
+| SCHEDULING_TASK_SELF_HOSTING_TELEMETRY        | Enables the scheduled sending of anonymous telemetry data (default: `true`)               |
